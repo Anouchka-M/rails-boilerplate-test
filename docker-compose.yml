@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    build: .
+    volumes:
+      - ./:/usr/src/app/
+    ports:
+      - 4048:4048
+    env_file:
+      - .env
+    command: bin/rails server -b 0.0.0.0 -p 4048
