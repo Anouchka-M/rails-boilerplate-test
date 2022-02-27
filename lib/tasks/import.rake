@@ -21,11 +21,12 @@ namespace :data do
   task import_apps: :environment do
     csv_path = File.join("#{Rails.root}/donnees.csv")
     csv_content = File.read(csv_path)
-    csv = CSV.parse(csv_content, headers: true, header_converters: :symbol, converters: :all)
+    csv = CSV.parse(csv_content, headers: true)
+    print csv
 
     csv.each do |row|
       begin
-        Application.find_or_create_by(row.to_hash())
+        Application.find_or_create_by(row.to_hash)
       rescue
         puts "Error: #{row} will not be loaded"
         Rails.logger.info "Error: #{row} will not be loaded"
