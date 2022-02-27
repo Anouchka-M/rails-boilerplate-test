@@ -1,6 +1,7 @@
 class ApplicationsController < ApplicationController
   def index
     @applications = Application.all
+    # render json: @application.to_json
   end
 
   def show
@@ -15,6 +16,7 @@ class ApplicationsController < ApplicationController
     @application = Application.new(application_params)
 
     if @application.save
+      # render json: @application.to_json
       redirect_to @application
     else
       render :new, status: :unprocessable_entity
