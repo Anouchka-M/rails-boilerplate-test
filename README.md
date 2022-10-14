@@ -40,4 +40,4 @@ Using docker and docker-compose: `$ docker-compose run web bin/rails <command>`
 
 Without docker: `$ bin/rails <command>`
 
-`bin/rails` can invoke rake commands as well.
+`bin/rails` can invoke rake commands as well. 
